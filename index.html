@@ -1,0 +1,555 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lessons 9–12 Reviewer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@500;700&display=swap">
+<style>
+/* Layout: one reading column; a sticky tab bar switches Study / Flashcards / Mix-ups / Practice. Each lesson owns a color so learners can find it by sight. */
+:root{
+  --bg:#F5F6FA; --surface:#FFFFFF; --ink:#16192B; --muted:#4A5068; --line:#C9CEDD;
+  --brand:#2B3A8C; --brand-ink:#FFFFFF;
+  --k:#B7791F; --k-tint:#FDF3DC;   /* kernicterus: bilirubin yellow */
+  --l:#6B3FA0; --l-tint:#F1E9FB;   /* language & speech */
+  --m:#B23A48; --m-tint:#FBE7EA;   /* muscular dystrophy */
+  --t:#1F7A5A; --t-tint:#E2F4EC;   /* tourette */
+  --ok:#11683F; --ok-bg:#DDF2E6; --no:#A3241B; --no-bg:#FBE3E0; --focus:#C2187A;
+  --display:"Lexend", "Atkinson Hyperlegible", Verdana, sans-serif;
+  --body:"Atkinson Hyperlegible", Verdana, "Segoe UI", Arial, sans-serif;
+  --fs:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11131E; --surface:#1A1D2C; --ink:#EEF0F8; --muted:#AEB4CC; --line:#363B55;
+    --brand:#9FB0FF; --brand-ink:#0E1430;
+    --k:#F2C46B; --k-tint:#352A12; --l:#C8A7F2; --l-tint:#2A1F3D; --m:#F2A0AA; --m-tint:#3A1C22; --t:#7FD8B4; --t-tint:#14322A;
+    --ok:#7FE0AE; --ok-bg:#123726; --no:#FFA79E; --no-bg:#43201C; --focus:#FF8AD4; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11131E; --surface:#1A1D2C; --ink:#EEF0F8; --muted:#AEB4CC; --line:#363B55;
+  --brand:#9FB0FF; --brand-ink:#0E1430;
+  --k:#F2C46B; --k-tint:#352A12; --l:#C8A7F2; --l-tint:#2A1F3D; --m:#F2A0AA; --m-tint:#3A1C22; --t:#7FD8B4; --t-tint:#14322A;
+  --ok:#7FE0AE; --ok-bg:#123726; --no:#FFA79E; --no-bg:#43201C; --focus:#FF8AD4; color-scheme:dark;
+}
+html{font-size:var(--fs)}
+body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.55; margin:0}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--surface)}
+*,*::before,*::after{box-sizing:border-box}
+button{font:inherit; color:inherit; cursor:pointer}
+:focus-visible{outline:4px solid var(--focus); outline-offset:3px}
+h1,h2,h3{font-family:var(--display); line-height:1.2; text-wrap:balance; margin:0}
+h1{font-size:1.9rem} h2{font-size:1.45rem} h3{font-size:1.1rem}
+p{margin:0}
+.gutter{padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+.col{max-width:46rem; margin:0 auto}
+
+/* header + tabs */
+header{background:var(--surface); border-bottom:2px solid var(--line)}
+.top{display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; padding-block:.9rem .6rem}
+.top h1{font-size:1.35rem}
+.size{display:flex; align-items:center; gap:.4rem}
+.size span{font-size:.85rem; color:var(--muted)}
+.chip-btn{min-width:2.75rem; min-height:2.75rem; border:2px solid var(--ink); background:var(--surface); border-radius:.6rem; font-weight:700}
+nav.tabs{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--surface); border-bottom:2px solid var(--line)}
+nav.tabs .col{display:flex; gap:.25rem; overflow-x:auto}
+nav.tabs a{flex:1 0 auto; text-align:center; text-decoration:none; color:var(--muted); font-weight:700; padding:.8rem .7rem; border-bottom:4px solid transparent; white-space:nowrap}
+nav.tabs a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--brand)}
+nav.tabs a svg{vertical-align:-3px; margin-right:.35rem}
+
+main{padding-block:1.25rem 4rem}
+.stack{display:grid; gap:1.1rem}
+.lead{color:var(--muted)}
+.notice{display:flex; gap:.8rem; align-items:flex-start; background:var(--surface); border:2px solid var(--line); border-radius:.8rem; padding:.8rem 1rem}
+.notice svg{flex:none; margin-top:.15rem}
+
+/* lesson picker */
+.picker{display:grid; gap:.6rem; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr))}
+.pick{display:flex; flex-direction:column; gap:.15rem; text-align:left; background:var(--surface); border:2px solid var(--line); border-left:10px solid var(--c); border-radius:.7rem; padding:.7rem .9rem; min-height:3.6rem}
+.pick small{color:var(--muted); font-size:.82rem}
+.pick b{font-family:var(--display); font-weight:500}
+.pick[aria-pressed="true"]{border-color:var(--c); border-width:3px 3px 3px 10px; background:var(--tint)}
+.c-k{--c:var(--k); --tint:var(--k-tint)} .c-l{--c:var(--l); --tint:var(--l-tint)}
+.c-m{--c:var(--m); --tint:var(--m-tint)} .c-t{--c:var(--t); --tint:var(--t-tint)}
+.c-all{--c:var(--brand); --tint:var(--surface)}
+
+/* study */
+.lesson-head{background:var(--tint); border:3px solid var(--c); border-radius:.9rem; padding:1rem 1.1rem; display:grid; gap:.5rem}
+.lesson-head .tag{font-weight:700; color:var(--ink); font-size:.9rem}
+.big{font-size:1.12rem}
+.block{background:var(--surface); border:2px solid var(--line); border-radius:.8rem; padding:1rem 1.1rem; display:grid; gap:.7rem}
+.block h3{display:flex; align-items:center; gap:.5rem}
+.block h3::before{content:""; width:.7rem; height:.7rem; border-radius:50%; background:var(--c); flex:none}
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:.5rem; counter-reset:s}
+.steps li{display:grid; grid-template-columns:2.2rem 1fr; gap:.7rem; align-items:start; counter-increment:s}
+.steps li::before{content:counter(s); width:2.2rem; height:2.2rem; border-radius:50%; background:var(--c); color:var(--surface); font-weight:700; display:grid; place-items:center}
+.list{margin:0; padding-left:1.2rem; display:grid; gap:.3rem}
+.pairs{display:grid; gap:.6rem}
+.pair{display:grid; grid-template-columns:minmax(7rem,11rem) 1fr; gap:.3rem .9rem; border-top:1px solid var(--line); padding-top:.6rem}
+.pair:first-child{border-top:0; padding-top:0}
+.pair b{font-family:var(--display); font-weight:500}
+@media (max-width:520px){.pair{grid-template-columns:1fr}}
+.tics{display:grid; grid-template-columns:auto 1fr 1fr; gap:.4rem}
+.tics > div{background:var(--tint); border-radius:.5rem; padding:.6rem .7rem}
+.tics .hd{background:transparent; font-weight:700; padding:.2rem .4rem}
+.tics .rh{background:transparent; font-weight:700; display:flex; align-items:center; padding:.2rem .4rem}
+@media (max-width:560px){.tics{grid-template-columns:1fr}.tics .hd{display:none}.tics .cell::before{content:attr(data-label); display:block; font-weight:700; font-size:.85rem}.tics .rh{display:none}}
+.onset{display:grid; gap:.7rem}
+.onset .row{display:grid; gap:.25rem}
+.onset .bar{position:relative; height:1.6rem; background:var(--bg); border:1px solid var(--line); border-radius:.4rem}
+.onset .bar i{position:absolute; top:0; bottom:0; background:var(--c); border-radius:.35rem}
+.onset .axis{display:flex; justify-content:space-between; font-size:.8rem; color:var(--muted); font-variant-numeric:tabular-nums}
+.term{background:none; border:0; padding:0; font-weight:700; text-decoration:underline dotted 2px; text-underline-offset:3px; color:inherit}
+.term[aria-expanded="true"]{background:var(--tint,var(--bg)); border-radius:.2rem}
+.def{display:block; margin:.35rem 0; padding:.5rem .7rem; border-left:5px solid var(--c,var(--brand)); background:var(--bg); border-radius:.3rem; font-weight:400}
+.def b{display:block}
+
+/* buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:.4rem; background:var(--brand); color:var(--brand-ink); border:0; border-radius:.7rem; padding:.8rem 1.2rem; font-weight:700; min-height:3rem}
+.btn.ghost{background:transparent; color:var(--ink); border:2px solid var(--ink)}
+.row-btns{display:flex; gap:.6rem; flex-wrap:wrap}
+
+/* flashcards */
+.card-stage{display:grid; gap:.8rem}
+.flash{width:100%; min-height:14rem; background:var(--surface); border:3px solid var(--c); border-radius:1rem; padding:1.4rem; display:grid; place-items:center; text-align:center; gap:.5rem}
+.flash .side{font-size:.85rem; font-weight:700; color:var(--muted)}
+.flash .front{font-family:var(--display); font-size:1.8rem; font-weight:500}
+.flash .back{font-size:1.2rem}
+.flash.flipped{background:var(--tint)}
+.meter{display:flex; align-items:center; gap:.75rem}
+.meter .bar{flex:1; height:.75rem; background:var(--surface); border:2px solid var(--ink); border-radius:1rem; overflow:hidden}
+.meter .bar i{display:block; height:100%; background:var(--brand)}
+.meter b{white-space:nowrap; font-variant-numeric:tabular-nums}
+
+/* quiz + mixups */
+.q-card{background:var(--surface); border:2px solid var(--line); border-top:8px solid var(--c); border-radius:.9rem; padding:1.1rem; display:grid; gap:.9rem}
+.q-tag{font-size:.85rem; font-weight:700; color:var(--muted)}
+.stem{font-size:1.2rem; font-weight:700; line-height:1.4}
+.opts{list-style:none; margin:0; padding:0; display:grid; gap:.55rem}
+.opt{display:flex; gap:.75rem; align-items:flex-start; width:100%; text-align:left; background:var(--surface); border:2px solid var(--line); border-radius:.7rem; padding:.75rem .85rem; min-height:3.2rem}
+.opt .k{flex:none; width:2rem; height:2rem; border-radius:50%; border:2px solid var(--ink); display:grid; place-items:center; font-weight:700}
+.opt .t{flex:1; min-width:0}
+.opt .mark{flex:none; font-weight:700; font-size:.9rem}
+.opt:not(:disabled):hover{border-color:var(--ink)}
+.opt:disabled{cursor:default; color:var(--ink)}
+.opt.right{border:4px solid var(--ok); background:var(--ok-bg); padding:calc(.75rem - 2px) calc(.85rem - 2px)}
+.opt.right .k{background:var(--ok); border-color:var(--ok); color:var(--surface)}
+.opt.right .mark{color:var(--ok)}
+.opt.wrong{border:4px dashed var(--no); background:var(--no-bg); padding:calc(.75rem - 2px) calc(.85rem - 2px)}
+.opt.wrong .k{border-radius:.3rem; background:var(--no); border-color:var(--no); color:var(--surface)}
+.opt.wrong .mark{color:var(--no)}
+.opt.dim{opacity:.55}
+.result{border-radius:.8rem; padding:.9rem 1rem; display:flex; gap:.8rem; align-items:flex-start}
+.result.ok{background:var(--ok-bg); border:4px solid var(--ok)}
+.result.no{background:var(--no-bg); border:4px dashed var(--no)}
+.result .sym{font-size:2.2rem; line-height:1; font-weight:700}
+.result.ok .sym{color:var(--ok)} .result.no .sym{color:var(--no)}
+.result h3{margin-bottom:.2rem}
+@keyframes pop{from{transform:scale(.97)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:no-preference){.result{animation:pop .16s ease-out}}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:.6rem}
+.two .opt{justify-content:center; text-align:center; font-weight:700; font-family:var(--display)}
+.score{font-family:var(--display); font-size:3rem; font-weight:700; line-height:1}
+.split{display:grid; gap:.5rem; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr))}
+.split div{background:var(--surface); border:2px solid var(--line); border-left:8px solid var(--c); border-radius:.6rem; padding:.6rem .8rem}
+.missed{list-style:none; padding:0; margin:0; display:grid; gap:.7rem}
+.missed li{background:var(--surface); border:2px solid var(--line); border-left:8px solid var(--c); border-radius:.7rem; padding:.8rem .9rem; display:grid; gap:.3rem}
+.missed .a{color:var(--ok); font-weight:700}
+.keys{font-size:.85rem; color:var(--muted)}
+kbd{border:2px solid var(--line); border-radius:.3rem; padding:0 .35rem; font-family:inherit; font-weight:700; background:var(--surface)}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+</style>
+
+<header>
+  <div class="col gutter top">
+    <h1>Lessons 9–12 Reviewer</h1>
+    <div class="size" role="group" aria-label="Text size">
+      <span>Text size</span>
+      <button class="chip-btn" id="smaller" aria-label="Make text smaller">A−</button>
+      <button class="chip-btn" id="bigger" aria-label="Make text bigger">A+</button>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Reviewer sections">
+  <div class="col gutter">
+    <a href="#study" data-v="study"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zm16 0h-4a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h5z"/></svg>Study</a>
+    <a href="#cards" data-v="cards"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h14v12H3zm16-2v12h2V4z"/></svg>Flashcards</a>
+    <a href="#mixups" data-v="mixups"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4 3 8l4 4V9h10V7H7zm10 8v3H7v2h10v3l4-4z"/></svg>Mix-ups</a>
+    <a href="#practice" data-v="practice"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Practice</a>
+  </div>
+</nav>
+<main class="gutter"><div class="col" id="app"></div></main>
+
+<script>
+/* ---------- content ---------- */
+const LESSONS=[
+ {id:"k",n:9,name:"Kernicterus",big:"Kernicterus is brain damage caused by very high [[bilirubin]] in a newborn. It can be prevented when severe [[jaundice]] is found and treated early. Once the brain is damaged, the effects can be permanent."},
+ {id:"l",n:10,name:"Language and speech disorders",big:"These disorders make it hard for a child to understand language, speak clearly, share ideas, or talk with others. They can affect learning, friendships, and confidence."},
+ {id:"m",n:11,name:"Muscular dystrophy",big:"[[Muscular dystrophy]] (MD) is a group of inherited diseases. The muscles get weaker and waste away over time. It is [[progressive]]: it gets worse as the child grows."},
+ {id:"t",n:12,name:"Tourette syndrome",big:"Tourette syndrome (TS) is a condition of the brain, not a behavior problem. It causes [[tics]]: movements and sounds the person does not choose to make."}
+];
+
+const G={ // glossary: key -> [lesson, word, meaning, picture]
+ bilirubin:["k","Bilirubin","A yellow substance made when red blood cells break down.","🟡"],
+ jaundice:["k","Jaundice","Yellow skin and eyes in a newborn, from too much bilirubin.","👶"],
+ hyperbilirubinemia:["k","Hyperbilirubinemia","Too much bilirubin in the blood. This is the main cause of kernicterus.","🩸"],
+ bbb:["k","Blood–brain barrier","A natural wall that protects the brain from harmful things in the blood. Too much bilirubin can cross it.","🧱"],
+ kernicterus:["k","Kernicterus","Brain damage caused by severe newborn jaundice that was not treated in time.","🧠"],
+ phototherapy:["k","Phototherapy","Treatment with a special blue light that lowers the bilirubin level. It prevents damage. It cannot repair damage.","💡"],
+ premature:["k","Premature","Born too early, before the baby is fully developed. This is a risk factor for kernicterus.","🍼"],
+ fm:["k","FM system","A microphone the teacher wears. It sends the teacher's voice straight to the learner's hearing device.","🎙️"],
+ om:["k","Orientation and mobility training","Lessons that teach a learner with low vision to know where they are and move around safely.","🧭"],
+ multisensory:["k","Multisensory teaching","Teaching that uses seeing, hearing, touching, and moving together.","✋"],
+ language:["l","Language disorder","Trouble understanding or using language: few words, grammar errors, trouble following instructions.","💬"],
+ speechsound:["l","Speech sound disorder","Trouble saying sounds correctly. Example: “wabbit” for “rabbit.”","👄"],
+ fluency:["l","Fluency disorder","Trouble speaking smoothly. Also called stuttering. Example: “I-I-I want to answer.”","〰️"],
+ social:["l","Social communication disorder","Trouble using communication with others: taking turns, keeping a conversation going, knowing when to listen.","🤝"],
+ stuttering:["l","Stuttering","Repeating sounds or words, or stopping often while speaking. Another name for fluency disorder.","🔁"],
+ developmental:["l","Developmental cause","A cause present from early on: genes, brain differences, hearing loss, or environment.","🌱"],
+ acquired:["l","Acquired cause","A cause that happens later in life: brain injury, illness or infection, or trauma.","🩹"],
+ md:["m","Muscular dystrophy","Inherited diseases that make muscles weaker and waste away over time.","💪"],
+ progressive:["m","Progressive","Gets worse over time. MD is progressive, so a learner's needs change.","📉"],
+ mutation:["m","Genetic mutation","A change in a gene. In MD, the change affects proteins that keep muscles healthy.","🧬"],
+ duchenne:["m","Duchenne","Starts at 2–6 years. Gets worse fast. Wheelchair by about age 12. Heart and breathing problems.","⏩"],
+ becker:["m","Becker","Starts in the teen years. Gets worse slowly. Milder than Duchenne.","🐢"],
+ myotonic:["m","Myotonic","Can start at any age. Muscle stiffness. Affects several organs.","🔒"],
+ dominant:["m","Autosomal dominant","One changed gene from one parent is enough. Each child has about a 50% chance. Boys and girls.","½"],
+ recessive:["m","Autosomal recessive","The child needs two changed genes, one from each parent. Limb-girdle types work this way.","👫"],
+ fatigue:["m","Fatigue","Very strong tiredness. Managing it helps the learner pay attention.","🔋"],
+ tic:["t","Tic","A sudden movement or sound that the person does not choose. It is often preceded by an urge.","⚡"],
+ motortic:["t","Motor tic","A tic that is a movement: eye blinking, head jerking, shoulder shrugging, facial grimacing.","🙆"],
+ vocaltic:["t","Vocal tic","A tic that is a sound: sniffing, throat clearing, grunting, yelling.","🗯️"],
+ echolalia:["t","Echolalia","Repeating words or phrases. A complex vocal tic.","🔂"],
+ echopraxia:["t","Echopraxia","Copying other people's gestures. A complex motor tic.","🪞"],
+ coprolalia:["t","Coprolalia","Saying socially inappropriate words. A complex vocal tic that is rare.","🤐"],
+ dopamine:["t","Dopamine","A brain chemical (neurotransmitter) linked to Tourette syndrome.","⚗️"],
+ neurologist:["t","Neurologist","A doctor for the brain and nerves. A neurologist diagnoses TS.","🩺"],
+ cbit:["t","CBIT","Comprehensive Behavioral Intervention for Tics. A therapy that helps a person gain control of tics.","🎯"],
+ urge:["t","Urge","An uncomfortable feeling just before a tic, like the feeling before a sneeze.","❗"]
+};
+const ALIAS={"bilirubin":"bilirubin","jaundice":"jaundice","Muscular dystrophy":"md","progressive":"progressive","tics":"tic","tic":"tic"};
+
+// Study blocks per lesson. Text may use [[word]] or [[word|key]] for word help.
+const STUDY={
+k:[
+ {type:"steps",h:"How kernicterus happens",items:[
+  "Red blood cells break down and release [[bilirubin]].",
+  "Too much bilirubin builds up in the blood ([[hyperbilirubinemia|hyperbilirubinemia]]). The skin and eyes turn yellow ([[jaundice]]).",
+  "The extra bilirubin crosses the [[blood–brain barrier|bbb]].",
+  "It damages brain tissue. This can cause permanent disabilities."]},
+ {type:"pairs",h:"Cause, risks, and treatment",items:[
+  ["Main cause","Severe [[hyperbilirubinemia|hyperbilirubinemia]] in newborns."],
+  ["Risk factors","[[Premature|premature]] birth; blood type incompatibility with the mother; breastfeeding difficulties; delayed medical treatment."],
+  ["Treatment","[[Phototherapy|phototherapy]]: a special blue light that lowers bilirubin."],
+  ["Prevention","Find severe jaundice early and treat it in time."]]},
+ {type:"pairs",h:"Effects and classroom supports",items:[
+  ["Hearing loss (most common)","Spoken instructions are hard to access. Use sign language, visual supports, or an [[FM system|fm]]."],
+  ["Movement difficulties","Writing, sitting, and moving around are hard. Use adaptive equipment, accessible seating, and physical therapy support."],
+  ["Vision problems","Small or low-contrast print is hard to see. Use large print, high contrast, and [[orientation and mobility training|om]]."],
+  ["Learning difficulties","The learner needs extra support. Use [[multisensory teaching|multisensory]] adapted to the learner."]]},
+ {type:"list",h:"Remember",items:["Work with the family, health professionals, and therapists.","Inclusive education needs early identification and individualized support."]}
+],
+l:[
+ {type:"pairs",h:"The four types",items:[
+  ["[[Language disorder|language]]","Trouble understanding or using language. Signs: few words, grammar errors, trouble forming sentences or following instructions."],
+  ["[[Speech sound disorder|speechsound]]","Trouble saying sounds correctly. Example: “wabbit” for “rabbit.”"],
+  ["[[Fluency disorder|fluency]]","Trouble speaking smoothly ([[stuttering]]). Example: “I-I-I want to answer.”"],
+  ["[[Social communication disorder|social]]","Trouble using communication with others. Example: speaks well but does not know when to listen or respond."]]},
+ {type:"pairs",h:"Causes",items:[
+  ["[[Developmental|developmental]]","Genetic factors; neurological differences; hearing loss; environment."],
+  ["[[Acquired|acquired]]","Brain injury; illness or infection; trauma."]]},
+ {type:"pairs",h:"Signs to look for",items:[
+  ["Language signs","Limited vocabulary; grammar difficulties; trouble understanding language; trouble telling a story."],
+  ["Speech signs","Unclear pronunciation; trouble making some sounds; stuttering; voice difficulties."]]},
+ {type:"pairs",h:"Effects on the child",items:[
+  ["Learning","Trouble understanding lessons."],["Communication","Trouble expressing ideas."],
+  ["Social interaction","Trouble joining conversations."],["Confidence","May feel frustrated or embarrassed."]]},
+ {type:"list",h:"What the teacher can do",items:["Use visual aids.","Give extra time to respond.","Use clear and simple instructions.","Encourage participation.","Model correct speech. Do not correct every error.","Work with specialists when needed.","Make sure no child is embarrassed because of how they speak."]}
+],
+m:[
+ {type:"pairs",h:"What causes it",items:[["Main cause","A [[genetic mutation|mutation]] that affects the proteins muscles need to stay healthy."]]},
+ {type:"onset",h:"Types by age of onset and speed"},
+ {type:"pairs",h:"How it is inherited",items:[
+  ["[[Autosomal dominant|dominant]]","One changed gene from either parent is enough. If one parent has it, each child has about a 50% chance. Boys and girls can both have it."],
+  ["[[Autosomal recessive|recessive]]","The child needs two changed genes, one from each parent. Limb-girdle types work this way."]]},
+ {type:"list",h:"Common signs",items:["Trouble getting up from the floor","Falls often","Muscles get weaker and weaker","Trouble walking, running, or climbing stairs","Enlarged calf muscles","Muscle cramps or stiffness"]},
+ {type:"pairs",h:"Treatment",items:[["Cure?","Most forms have no cure. Treatment slows it down and improves quality of life."],["Treatments","Physical and occupational therapy; regular exercise; treatment that supports the heart and lungs."]]},
+ {type:"list",h:"What the teacher can do",items:["Use flexible scheduling.","Use other ways to assess, not only long written tests.","Use peer assistance.","Give emotional support, because the condition gets worse over time.","Manage [[fatigue]] so the learner can pay attention.","Review the plan often. The learner's needs will change.","Work with the family and specialists."]}
+],
+t:[
+ {type:"tics",h:"Types of tics"},
+ {type:"list",h:"About tics",items:["Tics are involuntary. The person does not choose them.","Tics often come after an [[urge]], like the feeling before a sneeze.","[[Coprolalia]] is rare. Most people with TS do not have it."]},
+ {type:"pairs",h:"Causes",items:[
+  ["Genetic link","TS often runs in families."],
+  ["Brain chemistry","Differences in some brain areas and chemicals such as [[dopamine]]."],
+  ["Environment","Works together with genetics."],
+  ["NOT a cause","Parenting style and psychological problems do not cause TS."]]},
+ {type:"steps",h:"How TS is diagnosed",items:["Other people notice the tics.","The doctor checks the medical history and the pattern of tics.","A [[neurologist]] does a clinical evaluation.","There is no lab test for TS. Diagnosis is clinical."]},
+ {type:"pairs",h:"Rules for diagnosis",items:[["How long","Tics for at least 1 year."],["When they began","Before age 18."],["Often comes with","ADHD, OCD, anxiety, or depression."]]},
+ {type:"pairs",h:"Treatment and support",items:[["Cure?","No cure, but treatment helps."],["Medication","Lowers tic severity and helps with related conditions."],["Behavioral therapy","[[CBIT|cbit]] helps the person gain control of tics."],["Support","Education, understanding, and a supportive classroom."]]}
+]};
+
+const MIX=[
+ {a:"Hyperbilirubinemia",b:"Kernicterus",items:[["Too much bilirubin in the blood","a"],["Brain damage caused by bilirubin","b"]]},
+ {a:"Jaundice",b:"Kernicterus",items:[["Yellow skin and eyes in a newborn","a"],["Permanent effects such as hearing loss","b"]]},
+ {a:"Language disorder",b:"Speech sound disorder",items:[["Says “tar” instead of “car”","b"],["Says “Him goed to school”","a"],["Cannot follow a 2-step instruction","a"]]},
+ {a:"Fluency disorder",b:"Speech sound disorder",items:[["“B-b-b-ball!”","a"],["“Thoup” instead of “soup”","b"]]},
+ {a:"Language disorder",b:"Social communication disorder",items:[["Talks well but interrupts and never takes turns","b"],["Uses very few words for common things","a"]]},
+ {a:"Developmental cause",b:"Acquired cause",items:[["Hearing loss from birth","a"],["Head injury from a fall at age 6","b"],["Meningitis (an infection) at age 3","b"],["Speech delay that runs in the family","a"]]},
+ {a:"Duchenne",b:"Becker",items:[["Starts at age 2–6","a"],["Starts in the teen years","b"],["Gets worse quickly","a"],["Milder and slower","b"]]},
+ {a:"Autosomal dominant",b:"Autosomal recessive",items:[["One changed gene from one parent is enough","a"],["Needs a changed gene from each parent","b"],["About a 50% chance for each child","a"]]},
+ {a:"Muscular dystrophy",b:"Cerebral palsy",items:[["Muscle weakness that gets worse over time","a"],["Brain injury that does not get worse","b"]]},
+ {a:"Echolalia",b:"Echopraxia",items:[["Repeats what the teacher just said","a"],["Copies a classmate's wave","b"]]},
+ {a:"Motor tic",b:"Vocal tic",items:[["Shoulder shrugging","a"],["Throat clearing","b"],["Facial grimacing","a"],["Sniffing","b"]]},
+ {a:"Simple tic",b:"Complex tic",items:[["Eye blinking","a"],["Hopping","b"],["Repeating a phrase","b"],["Grunting","a"]]}
+];
+
+// practice pool: [lesson, question, correct, wrong1, wrong2, wrong3, why]
+const QS=[
+ ["k","What is bilirubin?","A yellow substance made when red blood cells break down","A germ that infects the newborn's liver and slowly spreads to the skin","A vitamin the baby gets from breast milk","A protein that builds the baby's muscles","Bilirubin comes from red blood cell breakdown. Too much of it causes jaundice."],
+ ["k","A newborn has yellow skin and yellow eyes. What is this called?","Jaundice","Kernicterus","Phototherapy","Hyperactivity","Jaundice is the yellow color. Kernicterus is the brain damage that can happen if severe jaundice is not treated."],
+ ["k","Why can very high bilirubin be dangerous?","It can cross into the brain and damage it","It can break the baby's bones","It can block the baby's lungs","It can stop the baby's heart from pumping blood right away","Too much bilirubin can cross the blood–brain barrier and damage brain tissue."],
+ ["k","Which statement about kernicterus is true?","It can be prevented with early checks and treatment","It cannot be prevented once jaundice appears","It goes away on its own as the child grows","It is passed from the parent to the child through the genes","Kernicterus is preventable when severe jaundice is found and treated in time."],
+ ["k","Which baby has a risk factor for kernicterus?","A baby born too early","A baby born at night","A baby born in a hospital","A baby with a large birth weight","Prematurity is a risk factor. So are blood type incompatibility, breastfeeding difficulties, and delayed treatment."],
+ ["k","A learner with kernicterus has trouble writing and moving around the room. Which support fits?","Adaptive equipment and accessible seating","Large print and high-contrast pages","An FM system and sign language","More homework so the learner can practice writing at home","Movement difficulties need adaptive equipment, accessible seating, and physical therapy support."],
+ ["k","Who should the teacher work with to support a learner with kernicterus?","The family, health professionals, and therapists","Only the school principal","Only the learner's classmates","No one, because the teacher should plan the lessons alone","The lesson says to collaborate with the family, health professionals, and therapists."],
+ ["l","A child says “pasghetti” for “spaghetti.” Which type is this?","Speech sound disorder","Fluency disorder","Social communication disorder","Language disorder","Saying sounds in the wrong way or order is a speech sound difficulty."],
+ ["l","A child says, “Can-can-can I go out?” Which type is this?","Fluency disorder","Speech sound disorder","Language disorder","Social communication disorder","Repeating sounds or words is a fluency disorder (stuttering)."],
+ ["l","A child talks clearly but does not take turns and talks over others. Which type is this?","Social communication disorder","Speech sound (articulation) disorder","Fluency disorder","Language disorder","Trouble with conversation rules like turn-taking is social communication disorder."],
+ ["l","A child uses very few words and cannot follow “Get your book and open it.” Which type is this?","Language disorder","Fluency disorder","Speech sound disorder","Social communication disorder","Trouble understanding and using language is a language disorder."],
+ ["l","Which cause is developmental?","Genetic factors","A brain injury from an accident","An illness at age five","A trauma to the head","Developmental causes: genes, brain differences, hearing loss, environment. The others are acquired."],
+ ["l","Which teacher habit helps a child with a communication disorder?","Giving extra time to answer","Correcting every mistake right away","Finishing the child's sentences","Calling on the child less often","The lesson says to give extra time and to avoid constant correction."],
+ ["l","A child feels embarrassed and stops raising her hand. Which effect is this?","Confidence","Learning","Hearing","Communication","Feeling frustrated or embarrassed is the effect on confidence."],
+ ["m","What does muscular dystrophy mainly affect?","The muscles","The skin","The eyes","The nerves of the skin","MD makes the muscles weaker and waste away over time."],
+ ["m","What does “progressive” mean for muscular dystrophy?","It gets worse over time","It gets better with age","It stays the same for life","It comes and goes each day","MD is progressive, so a learner's needs change over time."],
+ ["m","What is the main cause of muscular dystrophy?","A change in genes that affects muscle proteins","A brain injury during birth","Not enough exercise as a child","A virus that attacks and slowly weakens the muscles","The primary cause is a genetic mutation affecting muscle proteins."],
+ ["m","Which type starts earliest and gets worse fastest?","Duchenne","Becker","Myotonic","Limb-girdle","Duchenne starts at 2–6 years and progresses rapidly."],
+ ["m","Which type is known for muscle stiffness and can start at any age?","Myotonic","Duchenne","Becker","Limb-girdle","Myotonic MD involves muscle stiffness and several organs."],
+ ["m","A child needs one changed gene from each parent. Which inheritance is this?","Autosomal recessive","Autosomal dominant","Not inherited","From the mother only","Recessive needs two changed copies, one from each parent."],
+ ["m","Which sign may a teacher notice in a child with muscular dystrophy?","Enlarged calf muscles","Yellow skin and eyes","Repeating words","A hoarse, strained voice","Other signs: frequent falls, trouble getting up from the floor, trouble climbing stairs."],
+ ["m","A learner with MD gets tired easily in the afternoon. What can the teacher do?","Use a flexible schedule and short rest breaks","Give more work after lunch","Ignore it so the learner gets stronger","Send the learner home early every afternoon to rest","Fatigue management and flexible scheduling help the learner pay attention."],
+ ["m","Is there a cure for most forms of muscular dystrophy?","No, but treatment can slow it down","Yes, with daily exercise","Yes, with phototherapy","Yes, with medicine taken when the child turns 18","Therapy, exercise, and heart and lung support help, but most forms have no cure."],
+ ["t","Which statement about tics is true?","They are involuntary","They are done for attention","They are caused by bad parenting","They always include bad words","Tics are involuntary movements or sounds. They are often preceded by an urge."],
+ ["t","A student clears his throat again and again without meaning to. What kind of tic is this?","Simple vocal tic","Simple motor tic","Complex motor tic","Complex vocal tic","A short sound is a simple vocal tic."],
+ ["t","A student hops and touches objects without meaning to. What kind of tic is this?","Complex motor tic","Simple motor tic","Simple vocal tic","Complex vocal tic","Hopping and touching objects are longer movement patterns: complex motor tics."],
+ ["t","What is echolalia?","Repeating words or phrases","Copying other people's gestures","Saying bad words","Blinking the eyes quickly","Echolalia = repeating words. Echopraxia = copying gestures."],
+ ["t","How is Tourette syndrome diagnosed?","By a neurologist's clinical evaluation","By a blood test that measures brain chemicals","By an X-ray of the head and brain","By a hearing and vision test","There is no lab test. A neurologist diagnoses TS clinically."],
+ ["t","Which rule is part of the diagnosis of Tourette syndrome?","Tics for at least one year, starting before age 18","Tics for at least one month, starting after age 18","Tics only during school hours","Tics that appear only when tired","The lesson gives two rules: at least one year, and starting before age 18."],
+ ["t","A learner with TS also has trouble focusing and sitting still. What should the teacher know?","TS often comes with ADHD, OCD, anxiety, or depression","The learner does not really have TS","The focus problems are caused only by the tics themselves","These problems will stop at age 12","Co-occurring conditions are common with TS."],
+ ["t","What is CBIT?","A behavioral therapy that helps control tics","A medicine that cures TS","A test that diagnoses TS","A type of physical therapy for the muscles that cause tics","CBIT is Comprehensive Behavioral Intervention for Tics."],
+ ["t","A learner with TS has tics during class. What should the teacher do?","Stay calm and do not punish the tics","Tell the learner to stop right now","Send the learner out of the room","Ask classmates to ignore the learner","Tics are involuntary. Understanding and a supportive classroom help most."]
+];
+
+/* ---------- helpers ---------- */
+const app=document.getElementById("app");
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const L=id=>LESSONS.find(x=>x.id===id);
+let uid=0;
+function rich(s){ // [[word]] or [[word|key]] -> word-help button
+  return esc(s).replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,(m,w,k)=>{
+    const key=k||ALIAS[w]||w.toLowerCase(); const g=G[key]; if(!g) return w;
+    const id="d"+(++uid);
+    return `<button class="term" type="button" aria-expanded="false" aria-controls="${id}">${w}</button><span class="def" id="${id}" hidden><b>${esc(g[1])}</b>${esc(g[2])}</span>`;
+  });
+}
+app.addEventListener("click",e=>{
+  const t=e.target.closest(".term"); if(!t) return;
+  const d=document.getElementById(t.getAttribute("aria-controls"));
+  const open=t.getAttribute("aria-expanded")==="true";
+  t.setAttribute("aria-expanded",!open); d.hidden=open;
+});
+
+let fs=store.get("rv-fs",18);
+const applyFs=()=>document.documentElement.style.setProperty("--fs",fs+"px"); applyFs();
+document.getElementById("bigger").onclick=()=>{fs=Math.min(26,fs+2);applyFs();store.set("rv-fs",fs)};
+document.getElementById("smaller").onclick=()=>{fs=Math.max(14,fs-2);applyFs();store.set("rv-fs",fs)};
+
+const NOSOUND=`<div class="notice"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><p><b>No sound is used.</b> Everything is shown in words, symbols, and colors with borders. Select any <span style="font-weight:700;text-decoration:underline dotted 2px;text-underline-offset:3px">dotted word</span> to see what it means.</p></div>`;
+
+function picker(sel,withAll,attr){
+  const opts=(withAll?[{id:"all",name:"All lessons"}]:[]).concat(LESSONS);
+  return `<div class="picker" role="group" aria-label="Choose a lesson">${opts.map(o=>`<button class="pick c-${o.id}" ${attr}="${o.id}" aria-pressed="${sel===o.id}">${o.n?`<small>Lesson ${o.n}</small>`:"<small>Lessons 9–12</small>"}<b>${esc(o.name)}</b></button>`).join("")}</div>`;
+}
+
+/* ---------- Study ---------- */
+let studyId=store.get("rv-study","k");
+function study(){
+  const les=L(studyId);
+  const blocks=STUDY[studyId].map(b=>{
+    let body="";
+    if(b.type==="steps") body=`<ol class="steps">${b.items.map(x=>`<li><span>${rich(x)}</span></li>`).join("")}</ol>`;
+    if(b.type==="list") body=`<ul class="list">${b.items.map(x=>`<li>${rich(x)}</li>`).join("")}</ul>`;
+    if(b.type==="pairs") body=`<div class="pairs">${b.items.map(([a,c])=>`<div class="pair"><b>${rich(a)}</b><span>${rich(c)}</span></div>`).join("")}</div>`;
+    if(b.type==="onset"){
+      const rows=[["duchenne","Duchenne",2,6,"Starts at 2–6 years. Gets worse fast. Wheelchair by about age 12. Heart and breathing problems."],["becker","Becker",12,18,"Starts in the teen years. Gets worse slowly. Milder than Duchenne. Wheelchair later."],["myotonic","Myotonic",0,20,"Any age. Speed varies. Muscle stiffness. Affects several organs."]];
+      body=`<p class="lead">Each bar shows when the type usually starts (age 0 to 20).</p><div class="onset">${rows.map(r=>`<div class="row"><b>${rich(`[[${r[1]}|${r[0]}]]`)}</b><div class="bar" role="img" aria-label="${r[1]} starts ${r[0]==="myotonic"?"at any age":r[0]==="becker"?"in the teen years":"at ages 2 to 6"}"><i style="left:${r[2]/20*100}%;width:${(r[3]-r[2])/20*100}%"></i></div><span>${esc(r[4])}</span></div>`).join("")}<div class="axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20 years</span></div></div>`;
+    }
+    if(b.type==="tics"){
+      body=`<div class="tics"><div class="hd"></div><div class="hd">${rich("[[Motor tics|motortic]]")} (movement)</div><div class="hd">${rich("[[Vocal tics|vocaltic]]")} (sound)</div>
+      <div class="rh">Simple</div><div class="cell" data-label="Simple motor">Eye blinking, head jerking, shoulder shrugging, facial grimacing</div><div class="cell" data-label="Simple vocal">Sniffing, throat clearing, grunting, short squeaks</div>
+      <div class="rh">Complex</div><div class="cell" data-label="Complex motor">Touching objects, hopping, copying gestures (${rich("[[echopraxia]]")})</div><div class="cell" data-label="Complex vocal">Repeating words or phrases (${rich("[[echolalia]]")}); rarely, bad words (${rich("[[coprolalia]]")})</div></div>`;
+    }
+    return `<section class="block"><h3>${esc(b.h)}</h3>${body}</section>`;
+  }).join("");
+  app.innerHTML=`<div class="stack">
+    ${NOSOUND}
+    ${picker(studyId,false,"data-study")}
+    <div class="stack c-${studyId}">
+      <div class="lesson-head"><span class="tag">Lesson ${les.n}</span><h2>${esc(les.name)}</h2><p class="big">${rich(les.big)}</p></div>
+      ${blocks}
+      <div class="row-btns">
+        <button class="btn" id="go-quiz">Practice Lesson ${les.n}</button>
+        <button class="btn ghost" id="go-cards">Flashcards for Lesson ${les.n}</button>
+      </div>
+    </div></div>`;
+  app.querySelectorAll("[data-study]").forEach(b=>b.onclick=()=>{studyId=b.dataset.study;store.set("rv-study",studyId);study();});
+  document.getElementById("go-quiz").onclick=()=>{QZ.topic=studyId;QZ.len=99;startQuiz();location.hash="practice"};
+  document.getElementById("go-cards").onclick=()=>{FC.lesson=studyId;FC.list=null;location.hash="cards"};
+}
+
+/* ---------- Flashcards ---------- */
+const FC={lesson:"all",list:null,i:0,flipped:false,known:new Set()};
+function buildCards(){FC.list=shuffle(Object.keys(G).filter(k=>FC.lesson==="all"||G[k][0]===FC.lesson));FC.i=0;FC.flipped=false;FC.known=new Set()}
+function cards(){
+  if(!FC.list) buildCards();
+  const key=FC.list[FC.i], g=G[key], les=L(g[0]);
+  app.innerHTML=`<div class="stack">
+    ${picker(FC.lesson,true,"data-fc")}
+    <div class="meter"><b>Card ${FC.i+1} of ${FC.list.length}</b><div class="bar" aria-hidden="true"><i style="width:${(FC.i+1)/FC.list.length*100}%"></i></div><b>${FC.known.size} known</b></div>
+    <div class="card-stage c-${g[0]}">
+      <button class="flash ${FC.flipped?"flipped":""}" id="flip" aria-live="polite">
+        <span class="side">Lesson ${les.n} · ${FC.flipped?"Meaning":"Word"} · select the card to ${FC.flipped?"see the word":"see the meaning"}</span>
+        <span aria-hidden="true" style="font-size:2.4rem">${g[3]}</span>
+        ${FC.flipped?`<span class="back">${esc(g[2])}</span>`:`<span class="front">${esc(g[1])}</span>`}
+      </button>
+      <div class="row-btns">
+        <button class="btn ghost" id="prev" ${FC.i===0?"disabled":""}>Previous</button>
+        <button class="btn ghost" id="again">Study again</button>
+        <button class="btn" id="know">I know this</button>
+      </div>
+    </div>
+    <p class="keys">Keyboard: <kbd>Space</kbd> flips the card. <kbd>←</kbd> <kbd>→</kbd> move between cards.</p>
+  </div>`;
+  app.querySelectorAll("[data-fc]").forEach(b=>b.onclick=()=>{FC.lesson=b.dataset.fc;buildCards();cards()});
+  document.getElementById("flip").onclick=()=>{FC.flipped=!FC.flipped;cards();document.getElementById("flip").focus()};
+  document.getElementById("prev").onclick=()=>moveCard(-1);
+  document.getElementById("again").onclick=()=>{FC.known.delete(key);moveCard(1)};
+  document.getElementById("know").onclick=()=>{FC.known.add(key);moveCard(1)};
+}
+function moveCard(d){
+  const n=FC.i+d;
+  if(n>=FC.list.length){
+    const left=FC.list.filter(k=>!FC.known.has(k));
+    app.innerHTML=`<div class="stack"><h2>Round finished</h2><p class="big">You marked <b>${FC.known.size} of ${FC.list.length}</b> words as known.</p>
+      <div class="row-btns">${left.length?`<button class="btn" id="redo">Study the ${left.length} other words</button>`:""}<button class="btn ${left.length?"ghost":""}" id="restart">Start a new round</button></div></div>`;
+    const r=document.getElementById("redo"); if(r) r.onclick=()=>{FC.list=shuffle(left);FC.i=0;FC.flipped=false;FC.known=new Set();cards()};
+    document.getElementById("restart").onclick=()=>{buildCards();cards()};
+    return;
+  }
+  FC.i=Math.max(0,n);FC.flipped=false;cards();
+}
+
+/* ---------- Mix-ups ---------- */
+const MX={list:null,i:0,pick:null,right:0};
+function buildMix(){MX.list=shuffle(MIX.flatMap(p=>p.items.map(([text,ans])=>({a:p.a,b:p.b,text,ans}))));MX.i=0;MX.pick=null;MX.right=0}
+function mixups(){
+  if(!MX.list) buildMix();
+  if(MX.i>=MX.list.length){
+    app.innerHTML=`<div class="stack"><h2>All mix-ups done</h2><p class="score">${MX.right} of ${MX.list.length}</p><div class="row-btns"><button class="btn" id="mx-again">Play again</button></div></div>`;
+    document.getElementById("mx-again").onclick=()=>{buildMix();mixups()}; return;
+  }
+  const it=MX.list[MX.i], done=MX.pick!==null, ok=done&&MX.pick===it.ans;
+  const choice=s=>{const name=s==="a"?it.a:it.b;let c="",m="";if(done){if(s===it.ans){c="right";m="✓"}else if(s===MX.pick){c="wrong";m="✕"}else c="dim"}return `<button class="opt ${c}" data-s="${s}" ${done?"disabled":""}>${m?`<span class="mark" aria-hidden="true">${m}</span>`:""}<span class="t">${esc(name)}</span></button>`};
+  app.innerHTML=`<div class="stack">
+    <p class="lead">These pairs are easy to confuse. Read the clue and choose which word it matches.</p>
+    <div class="meter"><b>${MX.i+1} of ${MX.list.length}</b><div class="bar" aria-hidden="true"><i style="width:${MX.i/MX.list.length*100}%"></i></div><b>${MX.right} correct</b></div>
+    <div class="q-card c-all"><span class="q-tag">Which one is it?</span><p class="stem">${esc(it.text)}</p>
+      <div class="two">${choice("a")}${choice("b")}</div>
+      <div aria-live="polite">${done?`<div class="result ${ok?"ok":"no"}"><span class="sym" aria-hidden="true">${ok?"✓":"✕"}</span><div><h3>${ok?"Correct":"Not this one"}</h3><p>“${esc(it.text)}” matches <b>${esc(it.ans==="a"?it.a:it.b)}</b>.</p></div></div>`:""}</div>
+      ${done?`<div class="row-btns"><button class="btn" id="mx-next">Next clue</button></div>`:""}
+    </div>
+    <p class="keys">Keyboard: press <kbd>1</kbd> or <kbd>2</kbd> to choose, then <kbd>Enter</kbd>.</p></div>`;
+  app.querySelectorAll(".two .opt").forEach(b=>b.onclick=()=>mixAnswer(b.dataset.s));
+  const n=document.getElementById("mx-next"); if(n){n.onclick=()=>{MX.i++;MX.pick=null;mixups()};n.focus({preventScroll:true})}
+}
+function mixAnswer(s){if(MX.pick!==null)return;MX.pick=s;if(s===MX.list[MX.i].ans)MX.right++;mixups()}
+
+/* ---------- Practice ---------- */
+const QZ={topic:"all",len:10,list:null,i:0,view:"setup"};
+function startQuiz(){
+  const pool=QS.filter(q=>QZ.topic==="all"||q[0]===QZ.topic);
+  QZ.list=shuffle(pool).slice(0,QZ.len).map(q=>({q,order:shuffle([0,1,2,3]),pick:null}));
+  QZ.i=0;QZ.view="quiz";
+}
+function practice(){ if(QZ.view==="quiz") return quizQ(); if(QZ.view==="done") return quizDone(); setup(); }
+function setup(){
+  const max=QS.filter(q=>QZ.topic==="all"||q[0]===QZ.topic).length;
+  const best=store.get("rv-best",null);
+  app.innerHTML=`<div class="stack">
+    <h2>Practice questions</h2>
+    <p class="lead">Choose a lesson and how many questions. After each answer you see why it is right.</p>
+    ${picker(QZ.topic,true,"data-qt")}
+    <div class="picker" role="group" aria-label="Number of questions">
+      <button class="pick c-all" data-len="10" aria-pressed="${QZ.len===10}"><small>Short set</small><b>${Math.min(10,max)} questions</b></button>
+      <button class="pick c-all" data-len="99" aria-pressed="${QZ.len===99}"><small>Full set</small><b>${max} questions</b></button>
+    </div>
+    <div class="row-btns"><button class="btn" id="qz-go">Start practice</button></div>
+    ${best?`<p class="lead">Your best score on this device: <b>${best.s} of ${best.n}</b></p>`:""}</div>`;
+  app.querySelectorAll("[data-qt]").forEach(b=>b.onclick=()=>{QZ.topic=b.dataset.qt;setup()});
+  app.querySelectorAll("[data-len]").forEach(b=>b.onclick=()=>{QZ.len=+b.dataset.len;setup()});
+  document.getElementById("qz-go").onclick=()=>{startQuiz();practice();window.scrollTo(0,0)};
+}
+function quizQ(){
+  const it=QZ.list[QZ.i], q=it.q, les=L(q[0]), done=it.pick!==null, ok=done&&it.order[it.pick]===0, LET="ABCD";
+  app.innerHTML=`<div class="stack">
+    <div class="meter"><b>Question ${QZ.i+1} of ${QZ.list.length}</b><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${QZ.list.length}" aria-valuenow="${QZ.i+(done?1:0)}"><i style="width:${(QZ.i+(done?1:0))/QZ.list.length*100}%"></i></div></div>
+    <div class="q-card c-${q[0]}">
+      <span class="q-tag">Lesson ${les.n}: ${esc(les.name)}</span>
+      <p class="stem">${esc(q[1])}</p>
+      <ul class="opts">${it.order.map((src,pos)=>{let c="",m="";if(done){if(src===0){c="right";m="✓ Correct answer"}else if(pos===it.pick){c="wrong";m="✕ Your answer"}else c="dim"}
+        return `<li><button class="opt ${c}" data-pos="${pos}" ${done?"disabled":""}><span class="k">${LET[pos]}</span><span class="t">${esc(q[2+src])}</span>${m?`<span class="mark">${m}</span>`:""}</button></li>`}).join("")}</ul>
+      <div aria-live="polite">${done?`<div class="result ${ok?"ok":"no"}"><span class="sym" aria-hidden="true">${ok?"✓":"✕"}</span><div><h3>${ok?"Correct":"Not correct yet"}</h3>${ok?"":`<p>The correct answer is <b>${LET[it.order.indexOf(0)]}</b>.</p>`}<p><b>Why:</b> ${esc(q[6])}</p></div></div>`:""}</div>
+      <div class="row-btns">${done?`<button class="btn" id="qz-next">${QZ.i+1<QZ.list.length?"Next question":"See my score"}</button>`:""}<button class="btn ghost" id="qz-stop">Stop</button></div>
+    </div>
+    <p class="keys">Keyboard: press <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> <kbd>D</kbd> to answer, then <kbd>Enter</kbd>.</p></div>`;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>quizAnswer(+b.dataset.pos));
+  const n=document.getElementById("qz-next"); if(n){n.onclick=()=>{if(QZ.i+1<QZ.list.length){QZ.i++;quizQ();window.scrollTo(0,0)}else{QZ.view="done";quizDone();window.scrollTo(0,0)}};n.focus({preventScroll:true})}
+  document.getElementById("qz-stop").onclick=()=>{QZ.view="setup";setup()};
+}
+function quizAnswer(pos){const it=QZ.list[QZ.i];if(it.pick!==null)return;it.pick=pos;quizQ()}
+function quizDone(){
+  const right=QZ.list.filter(it=>it.order[it.pick]===0), missed=QZ.list.filter(it=>it.order[it.pick]!==0);
+  const best=store.get("rv-best",null); if(!best||right.length/QZ.list.length>best.s/best.n) store.set("rv-best",{s:right.length,n:QZ.list.length});
+  const by=LESSONS.map(l=>{const a=QZ.list.filter(it=>it.q[0]===l.id);return a.length?`<div class="c-${l.id}"><b>Lesson ${l.n}</b><br>${a.filter(it=>it.order[it.pick]===0).length} of ${a.length} correct</div>`:""}).join("");
+  app.innerHTML=`<div class="stack"><h2>Your score</h2><p class="score">${right.length} of ${QZ.list.length}</p>
+    <p class="big">${missed.length?"Read the questions you missed, then try them again.":"All correct. Well done."}</p>
+    <div class="split">${by}</div>
+    ${missed.length?`<h3>Questions to review (${missed.length})</h3><ul class="missed">${missed.map(it=>`<li class="c-${it.q[0]}"><b>${esc(it.q[1])}</b><span class="a">✓ ${esc(it.q[2])}</span><span>${esc(it.q[6])}</span></li>`).join("")}</ul>`:""}
+    <div class="row-btns">${missed.length?`<button class="btn" id="qz-retry">Try the missed questions again</button>`:""}<button class="btn ${missed.length?"ghost":""}" id="qz-new">Start a new set</button></div></div>`;
+  const r=document.getElementById("qz-retry"); if(r) r.onclick=()=>{QZ.list=shuffle(missed.map(it=>it.q)).map(q=>({q,order:shuffle([0,1,2,3]),pick:null}));QZ.i=0;QZ.view="quiz";quizQ();window.scrollTo(0,0)};
+  document.getElementById("qz-new").onclick=()=>{QZ.view="setup";setup()};
+}
+
+/* ---------- routing + keys ---------- */
+const VIEWS={study,cards,mixups,practice};
+function route(){
+  const v=VIEWS[location.hash.slice(1)]?location.hash.slice(1):"study";
+  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.v===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  VIEWS[v]();
+}
+window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey) return;
+  const tag=(document.activeElement&&document.activeElement.tagName)||"";
+  const v=location.hash.slice(1)||"study";
+  if(v==="practice"&&QZ.view==="quiz"){const p="abcd".indexOf(e.key.toLowerCase());if(e.key.length===1&&p>-1)quizAnswer(p)}
+  if(v==="mixups"&&MX.list&&MX.i<MX.list.length){if(e.key==="1")mixAnswer("a");if(e.key==="2")mixAnswer("b")}
+  if(v==="cards"&&FC.list&&FC.i<FC.list.length&&document.getElementById("flip")){
+    if(e.key===" "&&tag!=="BUTTON"){e.preventDefault();FC.flipped=!FC.flipped;cards()}
+    if(e.key==="ArrowRight")moveCard(1); if(e.key==="ArrowLeft"&&FC.i>0)moveCard(-1);
+  }
+});
+route();
+</script>
+
+</body></html>
